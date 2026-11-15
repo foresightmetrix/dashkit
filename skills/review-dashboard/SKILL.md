@@ -149,14 +149,17 @@ planning skill.
    IDs, assignee, and phase label, every assignee appears in
    `gh api repos/{owner}/{repo}/collaborators --jq '.[].login'`, and
    `## Dashboard review` in `ROADMAP.md` ends with today's dated line.
-6. **Merge.** Mark the pull request ready (`gh pr ready`) and ask the team
-   to read it. Once they have, the driver merges it
-   (`gh pr merge --squash --delete-branch`), then `git switch main` and
-   `git pull`. If the team needs time to read, hand off with Merge as the
-   step to resume at, and say in the handoff that the fix Issues start
-   after this pull request merges. Done when the project line of
-   `python tools/progress.py --skill review-dashboard --step 6` shows
-   ✓ Review.
+6. **Merge.** Run `pytest -rs`. Nothing merges red: fix any failure on this
+   branch in its own commit (one already on `main` included), name it in the
+   pull request body, and push. Then mark the pull request ready
+   (`gh pr ready`) and ask the team to read it. Once they have, the driver
+   merges it (`gh pr merge --squash --delete-branch`), then
+   `git switch main` and `git pull`. If the team needs time to read, hand
+   off with Merge as the step to resume at, and say in the handoff that the
+   fix Issues start after this pull request merges. Done when `pytest -rs`
+   reports none failed or errored on `main` after the pull, and the project
+   line of `python tools/progress.py --skill review-dashboard --step 6`
+   shows ✓ Review.
 
 **Done when** the review is merged to `main`, every finding has the
 student's recorded call, every chosen finding is an assigned Issue that

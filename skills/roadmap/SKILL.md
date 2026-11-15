@@ -138,11 +138,14 @@ planning skill.
    `## Dashboard review` as it is. The Issues now hold the tasks, so delete
    the `## Task draft` section. Done when every phase row lists its Issues,
    the critical path replaces its placeholder, and `## Task draft` is gone.
-6. **Merge.** Mark the pull request ready (`gh pr ready`) and ask the team
-   to read it. Once they have, the driver merges it
-   (`gh pr merge --squash --delete-branch`), then `git switch main` and
-   `git pull`. If the team needs time to read, hand off with Merge as the
-   step to resume at. Done when the project line of
+6. **Merge.** Run `pytest -rs`. Nothing merges red: fix any failure on this
+   branch in its own commit (one already on `main` included), name it in the
+   pull request body, and push. Then mark the pull request ready
+   (`gh pr ready`) and ask the team to read it. Once they have, the driver
+   merges it (`gh pr merge --squash --delete-branch`), then
+   `git switch main` and `git pull`. If the team needs time to read, hand
+   off with Merge as the step to resume at. Done when `pytest -rs` reports
+   none failed or errored on `main` after the pull, and the project line of
    `python tools/progress.py --skill roadmap --step 6` shows ✓ Roadmap.
 
 **Done when** `ROADMAP.md` is merged to `main`, every AC ID in `spec.md`

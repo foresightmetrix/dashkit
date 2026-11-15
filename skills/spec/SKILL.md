@@ -117,11 +117,14 @@ planning skill.
    to; a changed framed question carries through to its metrics, screen,
    and ACs. Done when every framed question has a complete metric definition
    and at least one numbered AC, and the student has typed that they agree.
-8. **Merge.** Mark the pull request ready (`gh pr ready`) and ask the team
-   to read it. Once they have, the driver merges it
-   (`gh pr merge --squash --delete-branch`), then `git switch main` and
-   `git pull`. If the team needs time to read, hand off with Merge as the
-   step to resume at. Done when the project line of
+8. **Merge.** Run `pytest -rs`. Nothing merges red: fix any failure on this
+   branch in its own commit (one already on `main` included), name it in the
+   pull request body, and push. Then mark the pull request ready
+   (`gh pr ready`) and ask the team to read it. Once they have, the driver
+   merges it (`gh pr merge --squash --delete-branch`), then
+   `git switch main` and `git pull`. If the team needs time to read, hand
+   off with Merge as the step to resume at. Done when `pytest -rs` reports
+   none failed or errored on `main` after the pull, and the project line of
    `python tools/progress.py --skill spec --step 8` shows ✓ Spec.
 
 **Done when** `spec.md` is merged to `main` and every framed question in it

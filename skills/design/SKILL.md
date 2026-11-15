@@ -102,11 +102,14 @@ planning skill.
 
    Done when the student has signed off on every screen, the drawings and
    `mockup.py` still match, and `pytest` passes.
-5. **Merge.** Mark the pull request ready (`gh pr ready`) and ask the team
-   to read it. Once they have, the driver merges it
-   (`gh pr merge --squash --delete-branch`), then `git switch main` and
-   `git pull`. If the team needs time to read, hand off with Merge as the
-   step to resume at. Done when the project line of
+5. **Merge.** Run `pytest -rs`. Nothing merges red: fix any failure on this
+   branch in its own commit (one already on `main` included), name it in the
+   pull request body, and push. Then mark the pull request ready
+   (`gh pr ready`) and ask the team to read it. Once they have, the driver
+   merges it (`gh pr merge --squash --delete-branch`), then
+   `git switch main` and `git pull`. If the team needs time to read, hand
+   off with Merge as the step to resume at. Done when `pytest -rs` reports
+   none failed or errored on `main` after the pull, and the project line of
    `python tools/progress.py --skill design --step 5` shows ✓ Design.
 
 **Done when** the design is merged to `main`, every framed question in
