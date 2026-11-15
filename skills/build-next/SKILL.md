@@ -45,6 +45,44 @@ at. Once approved, change `spec.md` first, in its own commit on this branch
 (the message names the AC and who approved), then the tests (as a locked
 test change), then the code. The pull request body calls out the change.
 
+## Deploy tasks
+
+Deploying is not a separate command. The roadmap plans two deploy tasks,
+Phase 1's hello-world deploy and Phase 5's final deploy, and each runs
+through `/dashkit:tests-first` (no new tests) and this skill like any other
+task. Only the student can do the deploy itself: it takes their Streamlit
+Community Cloud sign-in and their database password. In the Build step,
+hold a gate for it:
+
+1. **No app yet (the hello-world deploy).** Community Cloud runs `main`,
+   which already reads the database, so the student deploys now. Show the
+   steps filled in for this repository (`gh repo view --json nameWithOwner`):
+   1. At share.streamlit.io, **Create app** → **Deploy a public app from
+      GitHub**. The first time, sign in with GitHub; for a private
+      repository, give Community Cloud access when it asks.
+   2. Repository `<owner>/<repo>`, branch `main`, main file
+      `streamlit_app.py`.
+   3. **Advanced settings:** Python 3.12, and paste the whole of
+      `.streamlit/secrets.toml` into **Secrets**. The student opens the
+      file and copies it; never print it in chat.
+   4. **Deploy**, wait for the app to start, and paste its link here.
+2. **The app exists (the final deploy).** Community Cloud redeploys on
+   every merge to `main`, so there is nothing to create. If the README has
+   no live link yet, the hello-world deploy never happened: do item 1 first.
+3. **Link and evidence.** Put the link after `**Live app:**` at the top of
+   `README.md` in place of the placeholder (the tracker's Deploy mark reads
+   that line on `main`), commit, and push. Ask the student to open the link
+   and say what they see; their answer is the evidence for the Issue's
+   live-link criterion. "Error running app" usually means Secrets is empty
+   or incomplete: **Manage app** → **Settings** → **Secrets**, paste, save,
+   and reload.
+4. **Not now.** If the student cannot deploy in this session, hand off
+   with Build as the step to resume at.
+
+On the final deploy, Community Cloud picks up the merge itself: after
+Merge, ask the student to reload the live link once it has redeployed (a
+minute or two) and confirm every screen shows.
+
 ## Before step 1
 
 Gate commands in this skill use `--skill build-next`, plus
@@ -109,8 +147,9 @@ planning skill.
 
    When the handoff says "no new tests", work through the Issue's task
    criteria the same way, one at a time, showing the student the evidence
-   for each (the app reading the database, the live link opening). Done
-   when every task criterion is met and the student has seen its evidence.
+   for each (the app reading the database, the live link opening). A
+   deploy task follows **Deploy tasks** above. Done when every task
+   criterion is met and the student has seen its evidence.
 3. **Tidy.** Make the new code clearer with the same behavior: plainer
    names, repeated code folded into one function, a short comment where a
    reader would stop. Nothing new is added: no feature, filter, or test. Run
@@ -155,9 +194,10 @@ planning skill.
    `git switch main` and `git pull`. Post the handoff comment on the Issue:
    what changed on screen, what to look at, anything the next tasks should
    know, and the student's name. Tell the student what to check on screen,
-   then to `/clear`. Done when `gh issue view <number>` shows the Issue
-   closed with the handoff comment on it, and `git branch --show-current`
-   prints `main`.
+   then to `/clear`; on the final deploy, that includes reloading the
+   live link (see **Deploy tasks**). Done when `gh issue view <number>`
+   shows the Issue closed with the handoff comment on it, and
+   `git branch --show-current` prints `main`.
 
 **Done when** the pull request is merged with the full suite green, every
 review finding has a recorded decision, and the Issue is closed with its

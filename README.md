@@ -54,6 +54,12 @@ older repository without `tools/progress.py`, the skills copy it in from
 Each task takes two commands, each in a fresh session: `/dashkit:tests-first`
 and then `/dashkit:build-next`.
 
+There is no deploy command. The roadmap plans two deploy tasks, an early
+hello-world deploy and the final deploy, and they run through the same two
+commands. At the Build step of the hello-world deploy, `/dashkit:build-next`
+walks you through creating the app on Streamlit Community Cloud and waits
+for its link; after that, every merge to `main` redeploys it.
+
 ## Extras
 
 | File | What it is |
