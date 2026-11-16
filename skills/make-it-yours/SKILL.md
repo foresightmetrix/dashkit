@@ -93,9 +93,11 @@ When the team says the dashboard is theirs:
 
 - Replace the placeholder under `## Make it yours` in `design.md` with what
   the team made its own and why: a few sentences, in the team's own words.
-- Update any style rule in `design.md` the team changed, so the file
-  matches the app, with its code in `dashboard/charts.py` and
-  `.streamlit/config.toml`.
+- Bring `design.md` up to date so it matches the app: redraw any screen
+  under `## Screens` the team changed, and rewrite any style rule the team
+  changed, with its code in `dashboard/charts.py` and
+  `.streamlit/config.toml`. The final review checks the app against this
+  file.
 - Run `pytest -rs`. Nothing merges red: fix any failure in its own commit.
 - Mark the pull request ready (`gh pr ready`) and ask the team to read it.
   Then merge it (`gh pr merge --squash --delete-branch`), `git switch main`,
