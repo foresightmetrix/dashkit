@@ -11,11 +11,13 @@ any real query exists. The student stands in for the stakeholder; a layout
 signed off on a mockup is cheap to change, and one built on real queries is
 not.
 
-**Driver:** the Design Lead. Match `gh api user --jq .login` against
-`## Our team` in `ROLES.md`. No row for this login, or an empty table: fill
-in the student's row (name, GitHub username, role) first. One row in
-`## Our team`: that student is the driver (they hold every role). Otherwise,
-if the row holds another role, name the driver and ask whether to continue.
+**Driver:** anyone whose role is Design Lead in `## Our team` in `ROLES.md`,
+or, if nobody holds it, the Design Lead holder under `## Side quests`. Match
+`gh api user --jq .login` against those rows. No row for this login, or an
+empty table: fill in the student's row (name, GitHub username, role) first.
+One row in `## Our team`: that student is the driver (they hold every role).
+Otherwise, if this login is not a driver, name the drivers and ask whether to
+continue.
 
 **Interview:** inside a step, settle choices one question at a time, each
 with your recommendation first and a one-line reason.
@@ -65,7 +67,11 @@ is done, what is left, the skill and step to resume at, and the student's
 name) on the Issue for a task, or on this skill's draft pull request for a
 planning skill.
 
-**Roles:** read `ROLES.md`. A single row means one student holds every role.
+**Roles:** read `ROLES.md`. A single row in `## Our team` means one student
+holds every role; skip the lineup check. Otherwise check the lineup: exactly
+one Delivery Lead, no role held by more than three people, and every role
+nobody holds has a holder under `## Side quests`. If any check fails, say
+which one and stop until `ROLES.md` is fixed.
 <!-- /gate -->
 
 ## Steps
