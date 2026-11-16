@@ -14,12 +14,13 @@ them, so anyone can pick it up in a fresh session.
 If `/usage` leaves room, suggest `/model opus`; otherwise Sonnet with
 `/effort high`.
 
-**Driver:** the Delivery Lead (there is exactly one, in `## Our team` in
-`ROLES.md`). Match `gh api user --jq .login` against that row. No row for this
-login, or an empty table: fill in the student's row (name, GitHub username,
-role) first. One row in `## Our team`: that student is the driver (they hold
-every role). Otherwise, if this login is not the Delivery Lead, name them and
-ask whether to continue.
+**Driver:** match `gh api user --jq .login` against `## Our team` in
+`ROLES.md`. No row in `## Our team` for this login, or an empty table: fill in
+the student's row (name, GitHub username, role) first. One row in
+`## Our team`: that student is the driver (they hold every role). Otherwise,
+first run the lineup check under **Roles** in the gates below, and stop if it
+fails. The driver is the one Delivery Lead; if this login is not the Delivery
+Lead, name them and ask whether to continue.
 
 **Interview:** inside a step, settle changes one question at a time, each
 with your recommendation first and a one-line reason.
@@ -117,7 +118,7 @@ which one and stop until `ROLES.md` is fixed.
 3. **Assign.** Draft an assignee for every task from `## Our team` in
    `ROLES.md`, role first: Phase 1 → Data Lead; data layer → Data Lead, Spec
    Lead; views → Design Lead, Pitch Lead; filters → Spec Lead, Delivery
-   Lead; polish and deploy → Delivery Lead, Design Lead. Alternate in task order among everyone who holds a role the phase leans toward. A role nobody holds is skipped; a phase none of whose roles is held goes to the least busy person. Then balance by count:
+   Lead; polish and deploy → Delivery Lead, Design Lead. Alternate in task order among everyone who holds a role the phase leans toward. A role nobody holds counts its side-quest holder as holding it. Then balance by count:
    while anyone has two or more tasks more than someone else, move the
    busiest person's latest-ordered task to the least busy person. A single
    row in `## Our team` gets every task. Assignment needs every teammate's

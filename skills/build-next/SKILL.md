@@ -38,8 +38,8 @@ because the spec is wrong goes spec first.
 
 When building shows that `spec.md` is wrong or silent, stop and hold a gate
 for the spec change: show what `spec.md` says, what the build needs, and
-your recommended wording. Name a Spec Lead (or the Spec Lead side-quest holder) from `ROLES.md` and get their OK; with a single row in `## Our team`, the student
-approves. If the approver is not at hand, hand off with this step to resume
+your recommended wording. Name every Spec Lead (or the Spec Lead side-quest holder) from `ROLES.md` and get the OK of any one of them; with a single row in `## Our team`, the student
+approves. If none of them is at hand, hand off with this step to resume
 at. Once approved, change `spec.md` first, in its own commit on this branch
 (the message names the AC and who approved), then the tests (as a locked
 test change), then the code. The pull request body calls out the change.

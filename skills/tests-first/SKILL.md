@@ -29,8 +29,8 @@ using the dashboard.
 When writing a test shows that `spec.md` is wrong or silent (a metric
 definition that cannot be tested as written, an AC with no value to check),
 stop and hold a gate for the spec change: show what `spec.md` says, what the
-test needs, and your recommended wording. Name a Spec Lead (or the Spec Lead side-quest holder) from `ROLES.md` and get their OK; with a single row in `## Our team`,
-the student approves. If the approver is not at hand, hand off with this
+test needs, and your recommended wording. Name every Spec Lead (or the Spec Lead side-quest holder) from `ROLES.md` and get the OK of any one of them; with a single row in `## Our team`,
+the student approves. If none of them is at hand, hand off with this
 step to resume at. Once approved, change `spec.md` in its own commit on this
 branch (the message names the AC and who approved), then write the test.
 

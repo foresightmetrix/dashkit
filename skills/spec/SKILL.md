@@ -18,13 +18,14 @@ Brief: $ARGUMENTS (if empty, ask for the file or the pasted text).
 This is thinking work. If `/usage` leaves room, suggest `/model opus`;
 otherwise Sonnet with `/effort high`.
 
-**Driver:** anyone whose role is Spec Lead in `## Our team` in `ROLES.md`, or,
-if nobody holds it, the Spec Lead holder under `## Side quests`. Match `gh api
-user --jq .login` against those rows. No row for this login, or an empty
-table: fill in the student's row (name, GitHub username, role) first. One row
-in `## Our team`: that student is the driver (they hold every role).
-Otherwise, if this login is not a driver, name the drivers and ask whether to
-continue.
+**Driver:** match `gh api user --jq .login` against `## Our team` in
+`ROLES.md`. No row in `## Our team` for this login, or an empty table: fill in
+the student's row (name, GitHub username, role) first. One row in
+`## Our team`: that student is the driver (they hold every role). Otherwise,
+first run the lineup check under **Roles** in the gates below, and stop if it
+fails. The drivers are everyone whose role is Spec Lead, or, if nobody holds
+it, the Spec Lead holder under `## Side quests`; if this login is not one of
+them, name them and ask whether to continue.
 
 **Interview:** inside a step, ask one question at a time, each with your
 recommended answer first and a one-line reason, and wait for the answer

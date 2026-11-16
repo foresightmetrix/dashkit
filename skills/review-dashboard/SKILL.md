@@ -15,13 +15,14 @@ an Issue for `/dashkit:tests-first` and `/dashkit:build-next`.
 If `/usage` leaves room, suggest `/model opus`; otherwise Sonnet with
 `/effort high`.
 
-**Driver:** anyone whose role is Pitch Lead in `## Our team` in `ROLES.md`,
-or, if nobody holds it, the Pitch Lead holder under `## Side quests`. Match
-`gh api user --jq .login` against those rows. No row for this login, or an
-empty table: fill in the student's row (name, GitHub username, role) first.
-One row in `## Our team`: that student is the driver (they hold every role).
-Otherwise, if this login is not a driver, name the drivers and ask whether to
-continue.
+**Driver:** match `gh api user --jq .login` against `## Our team` in
+`ROLES.md`. No row in `## Our team` for this login, or an empty table: fill in
+the student's row (name, GitHub username, role) first. One row in
+`## Our team`: that student is the driver (they hold every role). Otherwise,
+first run the lineup check under **Roles** in the gates below, and stop if it
+fails. The drivers are everyone whose role is Pitch Lead, or, if nobody holds
+it, the Pitch Lead holder under `## Side quests`; if this login is not one of
+them, name them and ask whether to continue.
 
 **Findings:** each one in plain words: what the stakeholder would struggle
 with, and the change that fixes it. Number them in one list, most important
@@ -109,9 +110,8 @@ which one and stop until `ROLES.md` is fixed.
 
    A finding the spec does not ask for is a new requirement and goes spec
    first: show your recommended wording for a new AC at the next unused
-   number, `- **AC-n** (question q): Given …, when …, then ….`, and get the OK of a Spec Lead (or the Spec Lead side-quest holder), named from `ROLES.md`; with a
-   single row in `## Our team`, the student approves. If the approver is
-   not at hand, hand off with this step to resume at. Once approved, add it
+   number, `- **AC-n** (question q): Given …, when …, then ….`, name every Spec Lead (or the Spec Lead side-quest holder) from `ROLES.md`, and get the OK of any one of them; with a
+   single row in `## Our team`, the student approves. If none of them is at hand, hand off with this step to resume at. Once approved, add it
    under `## Acceptance criteria` in `spec.md`, in its own commit (the
    message names the AC and who approved), before its Issue exists.
 
@@ -127,7 +127,7 @@ which one and stop until `ROLES.md` is fixed.
    Draft an assignee for every one of these Issues from `## Our team` in
    `ROLES.md`, role first: Phase 1 → Data Lead; data layer → Data Lead, Spec
    Lead; views → Design Lead, Pitch Lead; filters → Spec Lead, Delivery
-   Lead; polish and deploy → Delivery Lead, Design Lead. Alternate in Issue order among everyone who holds a role the phase leans toward. A role nobody holds is skipped; a phase none of whose roles is held goes to the least busy person. Then balance by count:
+   Lead; polish and deploy → Delivery Lead, Design Lead. Alternate in Issue order among everyone who holds a role the phase leans toward. A role nobody holds counts its side-quest holder as holding it. Then balance by count:
    while anyone has two or more of these Issues more than someone else, move
    the busiest person's latest-ordered Issue to the least busy person. A
    single row in `## Our team` gets every Issue. Assignment needs every
