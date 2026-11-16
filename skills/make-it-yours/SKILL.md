@@ -80,7 +80,9 @@ honest version that keeps the idea. The team decides.
 
 **The one rule:** `pytest` passes before anything merges to `main`.
 
-**Long sessions:** when the status line passes 50%, write the ideas and
+**Long sessions:** you cannot see the status line, so after each idea is
+tried or built, ask the student to read the context percentage on it (or
+run `/context`) and type it. At 50% or more, write the ideas and
 decisions so far under `## Ideas so far` in the pull request body
 (`gh pr edit --body`), commit and push the work in progress, and suggest a
 fresh session; the next run picks up from there.

@@ -171,3 +171,5 @@ belongs to at least one Issue, every Issue with a figure names its tests
 (one without names its task criteria), and every Issue has its assignee and
 its phase label. Tell the student to `/clear`; each assignee starts their
 first Issue with `/dashkit:tests-first <issue number>`, in dependency order.
+The Make it yours Issue is the exception: it waits for
+`/dashkit:make-it-yours` once Phase 5 is done.

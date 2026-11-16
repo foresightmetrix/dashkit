@@ -57,7 +57,8 @@ older repository without `tools/progress.py`, the skills copy it in from
 | `/dashkit:make-it-yours` | Once the dashboard is finished to spec, an open session led by the Design Lead to give it its own identity and a signature feature, built and merged with every test passing |
 | `/dashkit:review-dashboard` | Checks every spec question is answered on screen and every rule in `design.md` holds, then turns the fixes you choose into assigned Issues |
 
-Each task takes two commands, each in a fresh session: `/dashkit:tests-first`
+Each task except Make it yours (which runs as `/dashkit:make-it-yours`)
+takes two commands, each in a fresh session: `/dashkit:tests-first`
 and then `/dashkit:build-next`.
 
 There is no deploy command. The roadmap plans two deploy tasks, an early

@@ -34,11 +34,14 @@ the review up.
 
 Gate commands in this skill use `--skill review-dashboard`.
 
-1. Make it yours comes first. If `ROADMAP.md` has a `6. Make it yours` row
-   and `gh issue list --label phase-6 --state open` lists an Issue, say the
-   team makes the dashboard its own before the final review: a Design Lead
-   runs `/dashkit:make-it-yours`. Then stop. A repository with no such row
-   goes straight on.
+1. Make it yours comes first. Only when there is no `review` branch, local
+   or remote (a first review, not a resumed one), and `ROADMAP.md` has a
+   `6. Make it yours` row: if the Make it yours Issue (labeled `phase-6`,
+   titled "Make it yours") is open, or `## Make it yours` in `design.md` on
+   `main` still holds the template's placeholder ("<What your team made its
+   own…"), say the team makes the dashboard its own before the final
+   review: a Design Lead runs `/dashkit:make-it-yours`. Then stop. A
+   repository with no such row goes straight on.
 2. Resume check: after `git fetch`, look for a `review` branch, local or
    remote. If it exists, switch to it. If it has an open pull request
    (`gh pr list --head review --state open`), read its findings and the
